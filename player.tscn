@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://5lg335vm0kx1"]
+[gd_scene load_steps=6 format=3 uid="uid://5lg335vm0kx1"]
 
 [ext_resource type="Script" path="res://sprite/player.gd" id="1_e7fjb"]
 [ext_resource type="PackedScene" uid="uid://brviaj6syy82i" path="res://interactables/interactray.tscn" id="2_x75n0"]
 [ext_resource type="Texture2D" uid="uid://cjxixc4wqc7yy" path="res://interactables/crosshair.png" id="3_pcnvu"]
-[ext_resource type="Script" path="res://sprite/TextureRect.gd" id="4_811gw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ybcyo"]
 radius = 0.4
@@ -28,35 +27,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3142, 0)
 
 [node name="Interactray" parent="neck" instance=ExtResource("2_x75n0")]
 
-[node name="UI" type="Control" parent="."]
-visible = false
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -597.0
+offset_top = -343.0
+offset_right = -557.0
+offset_bottom = -303.0
 
-[node name="TextureRect" type="TextureRect" parent="UI"]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
+anchors_preset = -1
+anchor_left = 15.841
+anchor_top = 8.25
+anchor_right = 15.841
+anchor_bottom = 8.275
+offset_left = -66.64
+offset_top = -27.0
+offset_right = -27.88
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_pcnvu")
-stretch_mode = 5
-script = ExtResource("4_811gw")
