@@ -3,12 +3,15 @@ class_name Interactable
 
 signal interacted(body)
 
+@export var enabled = true
 @export var prompt_message = "Interact"
 @export var prompt_action = "interact"
 
 
-func get_prompt():
 
+func get_prompt():
+	if not enabled:
+		return ""
 	
 	var key_name := "click"
 	for action in InputMap.action_get_events(prompt_action):
@@ -19,6 +22,9 @@ func get_prompt():
 
 
 func interact(body):
+	if not enabled:
+		return
 	print("Clickl, interacted interact script")
 	#body.interact()
+	print("Interact signal emitted from: ", self.name)
 	interacted.emit(body)

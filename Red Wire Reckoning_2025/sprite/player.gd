@@ -3,14 +3,18 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 10
+var is_dead = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $neck
 @onready var camera := $neck/Camera3D
+@onready var you_died_screen = $you_died
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Start in gameplay mode
+	
+	
 
 func _unhandled_input(event):
 	# Toggle between game mode and UI mode with ESC
@@ -22,7 +26,7 @@ func _unhandled_input(event):
 
 	# Only re-capture mouse on left click *if* currently in visible (UI) mode
 	if event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		if event.button_index == event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	# Camera movement only if mouse is captured
@@ -52,3 +56,22 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+func die():
+	#makes player die, plays sound effect
+	is_dead = true
+	await get_tree().create_timer(0.4).timeout
+
+func show_death_screen():
+	#shows the death screan with sound effect
+	you_died_screen.visible = true
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var curser = $Control
+	curser.visible = false
+
+func respawn():
+	you_died_screen.visible = false
+	get_tree().reload_current_scene()

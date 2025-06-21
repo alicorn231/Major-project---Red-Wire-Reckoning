@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bidx5ag1w2332"]
+[gd_scene load_steps=12 format=3 uid="uid://bidx5ag1w2332"]
 
 [ext_resource type="PackedScene" uid="uid://c7kqjy6kxqklh" path="res://models/platform.tscn" id="1_lbrst"]
 [ext_resource type="PackedScene" uid="uid://5lg335vm0kx1" path="res://sprite/player.tscn" id="2_m5he3"]
 [ext_resource type="PackedScene" uid="uid://ceee8joiwllom" path="res://models/rigid_body_3d.tscn" id="3_f1a0r"]
 [ext_resource type="PackedScene" uid="uid://wmr34eqfnx50" path="res://interact/switch.tscn" id="4_v0jol"]
+[ext_resource type="Script" path="res://scenes/death.gd" id="5_ec8nr"]
+[ext_resource type="PackedScene" uid="uid://wskj872e2n7x" path="res://models/you_died_screen.tscn" id="6_jkhqt"]
+[ext_resource type="PackedScene" uid="uid://bnsjh2y0vho7p" path="res://models/cloud.tscn" id="7_kigac"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amuyo"]
 sky_top_color = Color(0.384314, 0.603922, 1, 1)
@@ -20,6 +23,9 @@ sky = SubResource("Sky_unxjv")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqakt"]
+size = Vector3(150, 2, 150)
+
 [node name="world" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -31,21 +37,43 @@ light_color = Color(0.994789, 1, 0.915412, 1)
 shadow_enabled = true
 
 [node name="Platform" parent="." instance=ExtResource("1_lbrst")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43661, 0, -3.53379)
+transform = Transform3D(0.999998, 0, 0.00205949, 0, 1, 0, -0.00205949, 0, 0.999998, 3.43661, -1.12533, -3.53379)
 
 [node name="player" parent="." instance=ExtResource("2_m5he3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.41552, 2.85684, -4.24458)
 
 [node name="Bomb" parent="." instance=ExtResource("3_f1a0r")]
-transform = Transform3D(1, 0, 0, 0, 0.999841, -0.0178538, 0, 0.0178538, 0.999841, -8.03071, 1.9536, 0.432934)
+transform = Transform3D(0.149414, -0.0176534, -0.988617, 5.15936e-11, 0.999841, -0.0178538, 0.988775, 0.00266762, 0.149391, 2.55602, 0.906953, -10.0115)
 script = null
 
 [node name="Switch_1" parent="." instance=ExtResource("4_v0jol")]
-transform = Transform3D(0.211643, 0.21262, 0, -0.21262, 0.211643, 0, 0, 0, 0.3, -7.39215, 1.40358, 0.860103)
+transform = Transform3D(0.0316225, 0.0317685, -0.296632, -0.21262, 0.211643, 1.60702e-09, 0.209267, 0.210233, 0.0448244, 2.22906, 0.456932, -9.31624)
 prompt_message = "Switch 1"
 prompt_action = "click"
 
 [node name="Switch_2" parent="." instance=ExtResource("4_v0jol")]
-transform = Transform3D(0.211761, 0.212502, 1.04636e-16, -0.212502, 0.211761, -1.04636e-16, -1.47978e-16, -2.58267e-19, 0.3, -7.392, 1.404, -0.296492)
-prompt_message = "Switch 2"
+transform = Transform3D(0.0316402, 0.0317509, -0.296632, -0.212502, 0.211761, 3.555e-10, 0.209384, 0.210117, 0.0448244, 3.37269, 0.457353, -9.4889)
+prompt_message = "button"
 prompt_action = "click"
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.7422, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_wqakt")
+
+[node name="death" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.7422, 0)
+script = ExtResource("5_ec8nr")
+
+[node name="you_died" parent="." instance=ExtResource("6_jkhqt")]
+visible = false
+offset_left = -49.0
+offset_top = -207.0
+offset_right = -49.0
+offset_bottom = -207.0
+
+[node name="Node" parent="." instance=ExtResource("7_kigac")]
+
+[connection signal="area_entered" from="Area3D" to="death" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="death" method="_on_area_3d_body_entered"]

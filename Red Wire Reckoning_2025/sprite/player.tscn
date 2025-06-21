@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://5lg335vm0kx1"]
+[gd_scene load_steps=7 format=3 uid="uid://5lg335vm0kx1"]
 
 [ext_resource type="Script" path="res://sprite/player.gd" id="1_e7fjb"]
 [ext_resource type="PackedScene" uid="uid://brviaj6syy82i" path="res://interact/interactray.tscn" id="2_dctwo"]
 [ext_resource type="Texture2D" uid="uid://3naeg08vuqlh" path="res://Assets/crosshair.png" id="3_5unq8"]
+[ext_resource type="PackedScene" uid="uid://wskj872e2n7x" path="res://models/you_died_screen.tscn" id="4_pve0l"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ybcyo"]
 radius = 0.4
@@ -30,26 +31,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246196, 0)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -31.0
-offset_top = -40.0
-offset_right = 9.0
+anchor_left = 0.292
+anchor_top = 0.191
+anchor_right = 0.292
+anchor_bottom = 0.191
+offset_left = -281.384
+offset_top = -10.768
+offset_right = -241.384
+offset_bottom = 29.232
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.475
+anchor_right = 0.475
+anchor_bottom = 0.475
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
@@ -58,3 +59,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_5unq8")
 metadata/_edit_use_anchors_ = true
+
+[node name="you_died" parent="." instance=ExtResource("4_pve0l")]
+visible = false
+offset_left = -88.0
+offset_top = -215.0
+offset_right = -88.0
+offset_bottom = -215.0
