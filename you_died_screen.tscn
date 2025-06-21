@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://wskj872e2n7x"]
+
+[ext_resource type="Script" path="res://models/you_died_screen.gd" id="1_w1fda"]
+[ext_resource type="Texture2D" uid="uid://ccydbuu6eijno" path="res://Assets/you_died-text.png" id="3_irijp"]
+[ext_resource type="Texture2D" uid="uid://3naeg08vuqlh" path="res://Assets/crosshair.png" id="3_jyu1w"]
+
+[node name="you_died" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -160.0
+offset_right = -96.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w1fda")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.082
+anchor_top = 0.256
+anchor_right = 0.082
+anchor_bottom = 0.256
+offset_left = -2207.46
+offset_top = -1111.89
+offset_right = 3260.54
+offset_bottom = 2024.11
+color = Color(0.129412, 0.129412, 0.129412, 0.678431)
+
+[node name="give up" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 510.0
+offset_top = 724.0
+offset_right = 873.0
+offset_bottom = 836.0
+theme_override_font_sizes/font_size = 70
+text = "give up
+"
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 598.0
+offset_right = 874.0
+offset_bottom = 710.0
+theme_override_font_sizes/font_size = 70
+text = "restart"
+
+[node name="text- You Died" type="Sprite2D" parent="."]
+position = Vector2(677, 467.375)
+scale = Vector2(3.04499, 3.03258)
+texture = ExtResource("3_irijp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(680, 520)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(666.012, 559.1)
+scale = Vector2(-1.34377, -0.619375)
+range_z_min = -100
+range_z_max = 100
+texture = ExtResource("3_jyu1w")
+
+[connection signal="pressed" from="give up" to="." method="_on_give_up_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
