@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bwocftpsptta5" path="res://Assets/timer2.glb" id="2_8128b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd6ng"]
-albedo_color = Color(0.913725, 0, 0.101961, 1)
+albedo_color = Color(0.054902, 0.0666667, 0.0823529, 1)
 
 [node name="Timer" type="Node3D"]
+transform = Transform3D(0.999022, 0, -0.0442122, 0, 1, 0, 0.0442122, 0, 0.999022, 0, 0, 0)
 script = ExtResource("1_qtret")
 
 [node name="timer2" parent="." instance=ExtResource("2_8128b")]
@@ -106,6 +107,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
 surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.76656, 0.642172, 0, -0.642172, 0.76656, 0, 12.8981, 10.1271)
+transform = Transform3D(1, 0, 0, 0, 0.0246939, 0.999695, 0, -0.999695, 0.0246939, -0.0708351, 5.66264, -0.177938)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.845127, -0.313333, 0.433107, 0.487393, -0.784431, 0.383556, 0.219562, 0.535247, 0.815661, 0, 1.84484, -0.540576)
+light_color = Color(0.994789, 1, 0.915412, 1)
+shadow_enabled = true
 
 [editable path="timer2"]
