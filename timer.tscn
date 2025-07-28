@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0bx3nb7sg5b8"]
+
+[ext_resource type="Script" path="res://models/timer.gd" id="1_qtret"]
+[ext_resource type="PackedScene" uid="uid://bwocftpsptta5" path="res://Assets/timer2.glb" id="2_8128b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd6ng"]
+albedo_color = Color(0.913725, 0, 0.101961, 1)
+
+[node name="Timer" type="Node3D"]
+script = ExtResource("1_qtret")
+
+[node name="timer2" parent="." instance=ExtResource("2_8128b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0505599, 0.231812, -0.261586)
+
+[node name="base" parent="timer2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="17" parent="timer2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="14" parent="timer2" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="7" parent="timer2" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="10" parent="timer2" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="3" parent="timer2" index="5"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="0" parent="timer2" index="6"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="21" parent="timer2" index="7"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="24" parent="timer2" index="8"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="16" parent="timer2" index="9"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="15" parent="timer2" index="10"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="12" parent="timer2" index="11"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="11" parent="timer2" index="12"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="23" parent="timer2" index="13"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="22" parent="timer2" index="14"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="5" parent="timer2" index="15"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="4" parent="timer2" index="16"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="27" parent="timer2" index="17"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="6" parent="timer2" index="18"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="25" parent="timer2" index="19"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="26" parent="timer2" index="20"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="1" parent="timer2" index="21"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="2" parent="timer2" index="22"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="8" parent="timer2" index="23"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="9" parent="timer2" index="24"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="18" parent="timer2" index="25"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="19" parent="timer2" index="26"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="13" parent="timer2" index="27"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="20" parent="timer2" index="28"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="colon 2" parent="timer2" index="29"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="colon 1" parent="timer2" index="30"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vd6ng")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.76656, 0.642172, 0, -0.642172, 0.76656, 0, 12.8981, 10.1271)
+
+[editable path="timer2"]
