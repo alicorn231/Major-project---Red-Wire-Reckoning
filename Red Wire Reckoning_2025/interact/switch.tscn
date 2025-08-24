@@ -88,11 +88,9 @@ script = ExtResource("1_mmvrk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(-1, 0.000504645, 0, -0.000504645, -1, 0, 0, 0, 1, -0.0159776, 2.5307, 0.0602126)
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 1.95068e-12, 0, 1.95068e-12, 1, 0, 0, 0, 1, 0, 0, 0)
-visible = false
+transform = Transform3D(0.367345, 0.339202, 0, -0.339202, 0.367345, 0, 0, 0, 0.5, -0.640969, 1.78308, 0)
 shape = SubResource("ConcavePolygonShape3D_uk7mn")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]

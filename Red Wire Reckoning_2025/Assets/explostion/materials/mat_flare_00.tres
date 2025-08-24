@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ekn4q7df7ql5"]
+
+[ext_resource type="Texture2D" uid="uid://vlc1sle65q63" path="res://Assets/explostion/GAP_EasyExplosions_Textures (1)/Flare00.PNG" id="1_ass78"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ass78")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false

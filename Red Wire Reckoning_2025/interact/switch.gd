@@ -12,6 +12,7 @@ func _ready():
 	connect("interacted", Callable(self, "_interact"))
 
 func interact(body):
+	print("woo")
 	if not on:
 		turn_on()
 	else:

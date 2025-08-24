@@ -1,6 +1,4 @@
-[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://cwwql1a3cxllf"]
-
-[ext_resource type="Texture2D" uid="uid://cynxg2tuhldtg" path="res://Assets/explostion/T_PerlinNoise_46_inv.png" id="1_5m7dq"]
+[gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://cwwql1a3cxllf"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_gf7ak"]
 default_input_values = [0, Vector2(0, 0), 1, Vector2(0.5, 0.5)]
@@ -23,7 +21,6 @@ input_name = "normal"
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_egtvr"]
 expanded_output_ports = [0]
-texture = ExtResource("1_5m7dq")
 texture_type = 1
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_bo2bv"]
