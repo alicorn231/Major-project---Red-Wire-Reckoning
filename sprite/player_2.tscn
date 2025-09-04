@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://5lg335vm0kx1"]
+
+[ext_resource type="Script" path="res://sprite/player.gd" id="1_e7fjb"]
+[ext_resource type="PackedScene" uid="uid://brviaj6syy82i" path="res://interact/interactray.tscn" id="2_dctwo"]
+[ext_resource type="Texture2D" uid="uid://3naeg08vuqlh" path="res://Assets/crosshair.png" id="3_5unq8"]
+[ext_resource type="PackedScene" uid="uid://wskj872e2n7x" path="res://models/you_died_screen.tscn" id="4_pve0l"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ybcyo"]
+radius = 0.4
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mgoty"]
+points = PackedVector3Array(0.381273, 0.68024, 0.0854862, -0.386297, -0.677896, -0.062053, -0.354573, -0.702947, -0.149547, -0.327982, 0.767858, -0.150773, -0.120186, 0.643834, 0.377279, 0.233476, -0.739652, 0.292657, 0.17189, -0.671298, -0.353378, 0.0557998, 0.679, -0.386921, -0.29506, -0.671439, 0.259515, -0.288808, -0.793527, -0.288808, 0.377279, -0.643834, -0.120186, -0.382332, 0.612583, 0.113438, 0.0578165, 0.977101, 0.118885, 0.118885, -0.977101, 0.0578165, 0.288929, 0.671941, -0.266061, 0.198794, 0.634854, 0.34311, -0.0915974, -0.678415, 0.380241, -0.119552, 0.582167, -0.381568, 0.34311, -0.634854, 0.198794, -0.183819, -0.933656, 0.11723, 0.11723, 0.933656, -0.183819, -0.0620538, -0.677905, -0.386302, -0.244174, 0.903895, 0.0871524, 0.11723, -0.933658, -0.18382, -0.353529, 0.642315, -0.178314, 0.114373, -0.646787, 0.379025, -0.153225, 0.900621, -0.213276, -0.29506, 0.671439, 0.259515, 0.380241, 0.678415, -0.0915974, 0.267241, 0.871563, 0.116968, 0.0854861, 0.68024, 0.381273, 0.381273, -0.68024, 0.0854861)
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_e7fjb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ybcyo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_mgoty")
+
+[node name="neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32603, 0)
+
+[node name="Camera3D" type="Camera3D" parent="neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3142, 0)
+
+[node name="Interactray" parent="neck" instance=ExtResource("2_dctwo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.246196, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.292
+anchor_top = 0.191
+anchor_right = 0.292
+anchor_bottom = 0.191
+offset_left = -281.384
+offset_top = -10.768
+offset_right = -241.384
+offset_bottom = 29.232
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = 0.475
+anchor_right = 0.475
+anchor_bottom = 0.475
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5unq8")
+metadata/_edit_use_anchors_ = true
+
+[node name="you_died" parent="." instance=ExtResource("4_pve0l")]
+visible = false
+offset_left = -88.0
+offset_top = -215.0
+offset_right = -88.0
+offset_bottom = -215.0

@@ -1,0 +1,30 @@
+extends CollisionObject3D
+class_name Interactable
+
+signal interacted(body)
+
+@export var enabled = true
+@export var prompt_message = "Interact"
+@export var prompt_action = "interact"
+
+
+
+func get_prompt():
+	if not enabled:
+		return ""
+	
+	var key_name := "click"
+	for action in InputMap.action_get_events(prompt_action):
+		if action is InputEventKey:
+			key_name = action.as_text_physical_keycode()
+			break
+	return prompt_message + "\n[" + key_name + "]"
+
+
+func interact(body):
+	if not enabled:
+		return
+	print("Clickl, interacted interact script")
+	#body.interact()
+	print("Interact signal emitted from: ", self.name)
+	interacted.emit(body)
