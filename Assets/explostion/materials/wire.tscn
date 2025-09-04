@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmboo3qejcu7f"]
+
+[ext_resource type="Script" path="res://Assets/explostion/materials/wire.gd" id="1_tkifl"]
+[ext_resource type="PackedScene" uid="uid://cmx005gp5h1hv" path="res://Assets/wire2.glb" id="2_fs1w5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jj2d4"]
+size = Vector3(34.9519, 7.06262, 6.50746)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.380187, 0.00196731, -0.00194685, -0.00159067, 0.469869, 0.00155047, 0.000742638, -0.000724686, 0.999997, 0, 3.60158, 0)
+script = ExtResource("1_tkifl")
+enabled = null
+prompt_message = null
+prompt_action = null
+
+[node name="blend" parent="." instance=ExtResource("2_fs1w5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00803149, 1.19209e-07, 1.53418)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blend"]
+transform = Transform3D(0.914819, 0.403585, -0.0155528, -0.40369, 0.914888, -0.0041259, 0.012564, 0.0100529, 0.999871, 4.89476, 2.82408, -0.394875)
+shape = SubResource("BoxShape3D_jj2d4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
